@@ -13,14 +13,15 @@ Things updated:
 - clang.exe | 8.0.0 -> 18
   - clang includes | 8.0.0 -> 18
 
-- mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++26  
+- mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++26
+  
 *I am aware that gnu 13.2.1 has very little c++26 support, but I added it anyways.*  
 *THIS IS ONLY FOR V5, I DON'T HAVE HARDWARE TO TEST IQ2, OR EXP. PLEASE DON'T ASK ME TO MAKE IT FOR THOSE PLATFORMS!*  
 
 ## How can I apply this "update"?
 
-Vscode insiders -> "C:\Users\%USERNAME%\AppData\Roaming\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
-Vscode -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\vexrobotics.vexcode"
+Vscode insiders -> "C:\Users\%USERNAME%\AppData\Roaming\Code - Insiders\User\globalStorage\vexrobotics.vexcode"  
+Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\vexrobotics.vexcode"  
 
 - In here, delete the folders `sdk`, and `tools`.  
 - Then copy the folders `sdk` and `tools` from this repo, and paste it in the folder where you deleted it.  
@@ -28,8 +29,8 @@ Vscode -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\vexroboti
 
 **VERY IMPORTANT**  
 Then in your project, in the `example` folder, paste it into your workspace and replace the files!  
-The technical detail is that vex hardcodes some of the folders that we replace, so we have to change where the makefile looks for it!
-If you DON'T do this step, and you try to build, vex will auto redownload the sdk, and you will have to do 1-3 AGAIN!
+The technical detail is that vex hardcodes some of the folders that we replace, so we have to change where the makefile looks for it!  
+If you DON'T do this step, and you try to build, vex will auto redownload the sdk, and you will have to do 1-3 AGAIN!  
 
 ## Known problem
 
