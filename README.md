@@ -13,9 +13,8 @@ Things updated:
 - clang.exe | 8.0.0 -> 18.1.5
   - clang includes | 8.0.0 -> 18.1.5
 
-- mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++26
+- mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++23
   
-*I am aware that gnu 13.2.1 has very little c++26 support, but I added it anyways.*  
 *THIS IS ONLY FOR V5, I DON'T HAVE HARDWARE TO TEST IQ2, OR EXP. PLEASE DON'T ASK ME TO MAKE IT FOR THOSE PLATFORMS!*  
 
 ## How can I apply this "update"?
