@@ -10,8 +10,8 @@ Things updated:
 - GNU ARM.exe's | 2013 -> 13.2.rel1/2023
   - GCC Arm includes | 4.9.3 -> 13.2.1
 
-- clang.exe | 8.0.0 -> 18.1.5
-  - clang includes | 8.0.0 -> 18.1.5
+- clang.exe | 8.0.0 -> 18.1.6
+  - clang includes | 8.0.0 -> 18.1.6
 
 - mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++23
   
