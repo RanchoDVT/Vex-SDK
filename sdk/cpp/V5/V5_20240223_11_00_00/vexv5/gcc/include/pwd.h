@@ -10,7 +10,11 @@
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
- * 3. Neither the name of the University nor the names of its contributors
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *	This product includes software developed by the University of
+ *	California, Berkeley and its contributors.
+ * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
  *
@@ -55,18 +59,18 @@ struct passwd {
 	char	*pw_shell;		/* default shell */
 };
 
+#ifndef __INSIDE_CYGWIN__
 struct passwd	*getpwuid (uid_t);
 struct passwd	*getpwnam (const char *);
 
-#ifndef __INSIDE_CYGWIN__
-#if __MISC_VISIBLE || __POSIX_VISIBLE
+#if __POSIX_VISIBLE >= 200112 || __XSI_VISIBLE >= 500
 int 		 getpwnam_r (const char *, struct passwd *,
 			char *, size_t , struct passwd **);
 int		 getpwuid_r (uid_t, struct passwd *, char *,
 			size_t, struct passwd **);
 #endif
 
-#if __MISC_VISIBLE || __XSI_VISIBLE >= 4
+#if __XSI_VISIBLE >= 500
 struct passwd	*getpwent (void);
 void		 setpwent (void);
 void		 endpwent (void);

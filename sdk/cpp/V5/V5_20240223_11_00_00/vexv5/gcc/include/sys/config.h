@@ -8,10 +8,6 @@
 #define MALLOC_ALIGNMENT 16
 #endif
 
-#ifdef __AMDGCN__
-#define __DYNAMIC_REENT__
-#endif
-
 /* exceptions first */
 #if defined(__H8500__) || defined(__W65__)
 #define __SMALL_BITFIELDS
@@ -21,7 +17,7 @@
 #endif
 
 /* 16 bit integer machines */
-#if defined(__Z8001__) || defined(__Z8002__) || defined(__H8500__) || defined(__W65__) || defined (__mn10200__) || defined (__AVR__) || defined (__MSP430__)
+#if defined(__Z8001__) || defined(__Z8002__) || defined(__H8500__) || defined(__W65__) || defined (__mn10200__) || defined (__AVR__)
 
 #undef INT_MAX
 #undef UINT_MAX
@@ -79,7 +75,7 @@
 #define _POINTER_INT short
 #endif
 
-#if defined(__m68k__) || defined(__mc68000__) || defined(__riscv)
+#if defined(__m68k__) || defined(__mc68000__)
 #define _READ_WRITE_RETURN_TYPE _ssize_t
 #endif
 
@@ -96,6 +92,7 @@
 /* we want the reentrancy structure to be returned by a function */
 #define __DYNAMIC_REENT__
 #define HAVE_GETDATE
+#define _HAVE_SYSTYPES
 #define _READ_WRITE_RETURN_TYPE _ssize_t
 #define __LARGE64_FILES 1
 /* we use some glibc header files so turn on glibc large file feature */
@@ -112,7 +109,7 @@
 #define _POINTER_INT short
 #endif
 
-#if defined(__v850) && !defined(__rtems__)
+#ifdef __v850
 #define __ATTRIBUTE_IMPURE_PTR__ __attribute__((__sda__))
 #endif
 
@@ -127,7 +124,7 @@
 #endif
 
 /* Configure small REENT structure for Xilinx MicroBlaze platforms */
-#if defined (__MICROBLAZE__) && !defined(__rtems__)
+#if defined (__MICROBLAZE__)
 #ifndef _REENT_SMALL
 #define _REENT_SMALL
 #endif
@@ -158,11 +155,10 @@
 #define _REENT_SMALL
 #endif
 
-#define __BUFSIZ__ 256
 #define __SMALL_BITFIELDS
 
 #ifdef __MSP430X_LARGE__
-#define _POINTER_INT __int20
+#define _POINTER_INT long
 #else
 #define _POINTER_INT int
 #endif
@@ -236,12 +232,16 @@
 
 #if defined(__CYGWIN__)
 #include <cygwin/config.h>
+#if !defined (__STRICT_ANSI__) || (__STDC_VERSION__ >= 199901L)
+#define __USE_XOPEN2K 1
+#endif
 #endif
 
 #if defined(__rtems__)
 #define __FILENAME_MAX__ 255
 #define _READ_WRITE_RETURN_TYPE _ssize_t
 #define __DYNAMIC_REENT__
+#define _REENT_GLOBAL_ATEXIT
 #endif
 
 #ifndef __EXPORT
@@ -276,30 +276,6 @@
 #ifdef _WANT_REENT_SMALL
 #ifndef _REENT_SMALL
 #define _REENT_SMALL
-#endif
-#endif
-
-#ifdef _WANT_USE_LONG_TIME_T
-#ifndef _USE_LONG_TIME_T
-#define _USE_LONG_TIME_T
-#endif
-#endif
-
-#ifdef _WANT_USE_GDTOA
-#ifndef _USE_GDTOA
-#define _USE_GDTOA
-#endif
-#endif
-
-#ifdef _WANT_REENT_BACKWARD_BINARY_COMPAT
-#ifndef _REENT_BACKWARD_BINARY_COMPAT
-#define _REENT_BACKWARD_BINARY_COMPAT
-#endif
-#endif
-
-#ifdef _WANT_REENT_THREAD_LOCAL
-#ifndef _REENT_THREAD_LOCAL
-#define _REENT_THREAD_LOCAL
 #endif
 #endif
 

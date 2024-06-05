@@ -17,7 +17,11 @@
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
- * 3. Neither the name of the University nor the names of its contributors
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *	This product includes software developed by the University of
+ *	California, Berkeley and its contributors.
+ * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
  *
@@ -45,7 +49,7 @@
 #include <cygwin/grp.h>
 #endif
 
-#if __BSD_VISIBLE
+#if !defined(_POSIX_SOURCE) && !defined(_XOPEN_SOURCE)
 #define	_PATH_GROUP		"/etc/group"
 #endif
 
@@ -63,20 +67,25 @@ extern "C" {
 #ifndef __INSIDE_CYGWIN__
 struct group	*getgrgid (gid_t);
 struct group	*getgrnam (const char *);
-#if __MISC_VISIBLE || __POSIX_VISIBLE
 int		 getgrnam_r (const char *, struct group *,
 			char *, size_t, struct group **);
 int		 getgrgid_r (gid_t, struct group *,
 			char *, size_t, struct group **);
-#endif /* __MISC_VISIBLE || __POSIX_VISIBLE */
-#if __MISC_VISIBLE || __XSI_VISIBLE >= 4
+#ifndef _POSIX_SOURCE
 struct group	*getgrent (void);
 void		 setgrent (void);
 void		 endgrent (void);
-#endif /* __MISC_VISIBLE || __XSI_VISIBLE >= 4 */
-#if __BSD_VISIBLE
+#ifndef __CYGWIN__
+void		 setgrfile (const char *);
+#endif /* !__CYGWIN__ */
+#ifndef _XOPEN_SOURCE
+#ifndef __CYGWIN__
+char		*group_from_gid (gid_t, int);
+int		 setgroupent (int);
+#endif /* !__CYGWIN__ */
 int		 initgroups (const char *, gid_t);
-#endif /* __BSD_VISIBLE */
+#endif /* !_XOPEN_SOURCE */
+#endif /* !_POSIX_SOURCE */
 #endif /* !__INSIDE_CYGWIN__ */
 
 #ifdef __cplusplus

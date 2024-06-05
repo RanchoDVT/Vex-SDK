@@ -2,8 +2,6 @@
 # define _LIBC_LIMITS_H_	1
 
 #include <newlib.h>
-#include <sys/cdefs.h>
-#include <sys/syslimits.h>
 
 # ifdef _MB_LEN_MAX
 #  define MB_LEN_MAX	_MB_LEN_MAX
@@ -98,7 +96,8 @@
 #    define __LONG_LONG_MAX__ 9223372036854775807LL
 #   endif
 
-#   if __ISO_C_VISIBLE >= 1999
+#   if (defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) ||   \
+  (defined(__cplusplus) && __cplusplus >= 201103L)
 /* Minimum and maximum values a `signed long long int' can hold.  */
 #    undef LLONG_MIN
 #    define LLONG_MIN (-LLONG_MAX-1)
@@ -110,7 +109,7 @@
 #    define ULLONG_MAX (LLONG_MAX * 2ULL + 1)
 #   endif
 
-#  if __GNU_VISIBLE
+#  if defined (__GNU_LIBRARY__) ? defined (__USE_GNU) : !defined (__STRICT_ANSI__)
 /* Minimum and maximum values a `signed long long int' can hold.  */
 #    undef LONG_LONG_MIN
 #    define LONG_LONG_MIN (-LONG_LONG_MAX-1)

@@ -14,8 +14,6 @@ Things updated:
   - clang includes | 8.0.0 -> 18.1.6
 
 - mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++23
-  
-*THIS IS ONLY FOR V5, I DON'T HAVE HARDWARE TO TEST IQ2, OR EXP. PLEASE DON'T ASK ME TO MAKE IT FOR THOSE PLATFORMS!*  
 
 ## How can I apply this "update"?
 
@@ -27,7 +25,7 @@ Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\ve
 3. Load/Reload VsCode and Vex will auto download IQ2 and EXP, as I don't include them to save space :)  
 **VERY IMPORTANT**  
 4. Then in your project, in the `example` folder, paste it into your workspace and replace the files!  
-
+(NOT DONE FOR IQ2 AND EXP)
 The technical detail is that vex hardcodes some of the folders that we replace, so we have to change where the makefile looks for it!  
 If you DON'T do this step, and you try to build, vex will auto redownload the sdk, and you will have to do 1-3 AGAIN!  
 

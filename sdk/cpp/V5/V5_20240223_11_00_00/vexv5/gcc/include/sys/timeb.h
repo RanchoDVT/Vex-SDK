@@ -15,12 +15,11 @@ extern "C" {
 #define _SYS_TIMEB_H
 
 #include <_ansi.h>
-#include <sys/_types.h>
+#include <machine/types.h>
 
-#if !defined(__time_t_defined) && !defined(_TIME_T_DECLARED)
-typedef	_TIME_T_	time_t;
-#define	__time_t_defined
-#define	_TIME_T_DECLARED
+#ifndef __time_t_defined
+typedef _TIME_T_ time_t;
+#define __time_t_defined
 #endif
 
 struct timeb
@@ -31,7 +30,7 @@ struct timeb
   short dstflag;
 };
 
-extern int ftime (struct timeb *);
+extern int ftime _PARAMS ((struct timeb *));
 
 #ifdef __cplusplus
 }

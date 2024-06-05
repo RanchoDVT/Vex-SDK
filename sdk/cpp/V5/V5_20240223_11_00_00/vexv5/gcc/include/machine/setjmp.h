@@ -2,23 +2,16 @@
 _BEGIN_STD_C
 
 #if defined(__or1k__) || defined(__or1knd__)
-/*
- * r1, r2, r9, r14, r16 .. r30, SR.
- */
-#define _JBLEN 13
+#define _JBLEN 31 /* 32 GPRs - r0 */
 #define _JBTYPE unsigned long
 #endif
 
 #if defined(__arm__) || defined(__thumb__)
 /*
  * All callee preserved registers:
- *  core registers:
- *   r4 - r10, fp, sp, lr
- *  VFP registers (architectural support dependent):
- *   d8 - d15
+ * v1 - v7, fp, ip, sp, lr, f4, f5, f6, f7
  */
-#define _JBLEN 20
-#define _JBTYPE long long
+#define _JBLEN 23
 #endif
 
 #if defined(__aarch64__)
@@ -99,9 +92,6 @@ _BEGIN_STD_C
 #  define _JBLEN (13 * 4)
 # elif defined(__unix__) || defined(__rtems__)
 #  define _JBLEN	9
-# elif defined(__iamcu__)
-/* Intel MCU jmp_buf only covers callee-saved registers. */
-#  define _JBLEN	6
 # else
 #  include "setjmp-dj.h"
 # endif
@@ -177,18 +167,10 @@ _BEGIN_STD_C
 #endif
 
 #ifdef __PPC__
-#ifdef __powerpc64__
-#ifdef __ALTIVEC__
-#define _JBLEN 70
-#else
-#define _JBLEN 43
-#endif
-#else
 #ifdef __ALTIVEC__
 #define _JBLEN 64
 #else
 #define _JBLEN 32
-#endif
 #endif
 #define _JBTYPE double
 #endif
@@ -250,7 +232,7 @@ _BEGIN_STD_C
 #endif
 
 #ifdef __moxie__
-#define _JBLEN 10
+#define _JBLEN 16
 #endif
 
 #ifdef __CRX__
@@ -280,10 +262,6 @@ _BEGIN_STD_C
 #define _JBLEN 16
 #endif
 
-#ifdef __arc__
-#define _JBLEN 25 /* r13-r30,blink,lp_count,lp_start,lp_end,mlo,mhi,status32 */
-#endif
-
 #ifdef __MMIX__
 /* Using a layout compatible with GCC's built-in.  */
 #define _JBLEN 5
@@ -304,35 +282,6 @@ _BEGIN_STD_C
 #define _JBLEN 8
 #endif
 
-#ifdef __XTENSA__
-#if __XTENSA_WINDOWED_ABI__
-
-/* The jmp_buf structure for Xtensa windowed ABI holds the following
-   (where "proc" is the procedure that calls setjmp): 4-12 registers
-   from the window of proc, the 4 words from the save area at proc's $sp
-   (in case a subsequent alloca in proc moves $sp), and the return
-   address within proc. Everything else is saved on the stack in the
-   normal save areas. The jmp_buf structure is:
-
-   struct jmp_buf {
-      int regs[12];
-      int save[4];
-      void *return_address;
-   }
-
-   See the setjmp code for details.  */
-
-/* sizeof(struct jmp_buf) */
-#define _JBLEN 17
-
-#else /* __XTENSA_CALL0_ABI__ */
-
-/* a0, a1, a12, a13, a14, a15 */
-#define _JBLEN 6
-
-#endif /* __XTENSA_CALL0_ABI__ */
-#endif /* __XTENSA__ */
-
 #ifdef __mep__
 /* 16 GPRs, pc, hi, lo */
 #define _JBLEN 19
@@ -340,10 +289,6 @@ _BEGIN_STD_C
 
 #ifdef __CRIS__
 #define _JBLEN 18
-#endif
-
-#ifdef __ia64
-#define _JBLEN 64
 #endif
 
 #ifdef __lm32__
@@ -393,11 +338,6 @@ _BEGIN_STD_C
 #define _JBTYPE unsigned long
 #endif
 
-#ifdef __PRU__
-#define _JBLEN 48
-#define _JBTYPE unsigned int
-#endif
-
 #ifdef __RX__
 #define _JBLEN 0x44
 #endif
@@ -405,28 +345,6 @@ _BEGIN_STD_C
 #ifdef __VISIUM__
 /* All call-saved GP registers: r11-r19,r21,r22,r23.  */
 #define _JBLEN 12
-#endif
-
-#ifdef __riscv
-/* _JBTYPE using long long to make sure the alignment is align to 8 byte,
-   otherwise in rv32imafd, store/restore FPR may mis-align.  */
-#define _JBTYPE long long
-#ifdef __riscv_32e
-#define _JBLEN ((4*sizeof(long))/sizeof(long))
-#else
-#define _JBLEN ((14*sizeof(long) + 12*sizeof(double))/sizeof(long))
-#endif
-#endif
-
-#ifdef __CSKYABIV2__
-#define _JBTYPE unsigned long
-#if defined(__CK801__)
-#define _JBLEN 7
-#elif defined(__CK802__)
-#define _JBLEN 10
-#else
-#define _JBLEN 18
-#endif
 #endif
 
 #ifdef _JBLEN
@@ -439,7 +357,7 @@ typedef	int jmp_buf[_JBLEN];
 
 _END_STD_C
 
-#if (defined(__CYGWIN__) || defined(__rtems__)) && __POSIX_VISIBLE
+#if defined(__CYGWIN__) || defined(__rtems__)
 #include <signal.h>
 
 #ifdef __cplusplus
@@ -521,4 +439,4 @@ extern int _setjmp (jmp_buf);
 #ifdef __cplusplus
 }
 #endif
-#endif /* (__CYGWIN__ or __rtems__) and __POSIX_VISIBLE */
+#endif /* __CYGWIN__ or __rtems__ */

@@ -1,0 +1,19 @@
+{
+  "version"   : "20230627.09.00.00",
+  
+  "platforms" : [
+    {
+      "name"        : "vexiq2",
+      "version"     : "20230627.09.00.00",
+      "vexos"       : "1.0.8",
+
+      "sdk"         : "1.0.8.2",
+      "copyright"   : "VEX Robotics Inc.",
+      "product"     : "228-6480",
+      "description" : "VEX IQ2 runtime library",
+      "license"     : "license.pdf",
+      "comment1"    : "",
+      "comment2"    : ""
+    }
+  ]
+}
