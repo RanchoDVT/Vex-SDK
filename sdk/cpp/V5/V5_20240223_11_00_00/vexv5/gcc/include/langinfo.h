@@ -29,13 +29,18 @@
 #ifndef _LANGINFO_H_
 #define	_LANGINFO_H_
 
-#include <newlib.h>
-#include <sys/config.h>
 #include <sys/cdefs.h>
+#include <sys/_types.h>
+#if __POSIX_VISIBLE >= 200809
+#include <sys/_locale.h>
+#endif
 
-typedef int nl_item;
+#ifndef _NL_ITEM_DECLARED
+typedef __nl_item nl_item;
+#define _NL_ITEM_DECLARED
+#endif
 
-enum __nl_item
+enum
 {
   /* POSIX and BSD defined items have to stick to the original values
      to maintain backward compatibility. */
@@ -186,26 +191,26 @@ enum __nl_item
 
   _NL_LOCALE_EXTENDED_FIRST_ENTRY,
 
-  _NL_CTYPE_OUTDIGITS0_MB,
-  _NL_CTYPE_OUTDIGITS1_MB,
-  _NL_CTYPE_OUTDIGITS2_MB,
-  _NL_CTYPE_OUTDIGITS3_MB,
-  _NL_CTYPE_OUTDIGITS4_MB,
-  _NL_CTYPE_OUTDIGITS5_MB,
-  _NL_CTYPE_OUTDIGITS6_MB,
-  _NL_CTYPE_OUTDIGITS7_MB,
-  _NL_CTYPE_OUTDIGITS8_MB,
-  _NL_CTYPE_OUTDIGITS9_MB,
-  _NL_CTYPE_OUTDIGITS0_WC,
-  _NL_CTYPE_OUTDIGITS1_WC,
-  _NL_CTYPE_OUTDIGITS2_WC,
-  _NL_CTYPE_OUTDIGITS3_WC,
-  _NL_CTYPE_OUTDIGITS4_WC,
-  _NL_CTYPE_OUTDIGITS5_WC,
-  _NL_CTYPE_OUTDIGITS6_WC,
-  _NL_CTYPE_OUTDIGITS7_WC,
-  _NL_CTYPE_OUTDIGITS8_WC,
-  _NL_CTYPE_OUTDIGITS9_WC,
+  _NL_CTYPE_OUTDIGIT0_MB,
+  _NL_CTYPE_OUTDIGIT1_MB,
+  _NL_CTYPE_OUTDIGIT2_MB,
+  _NL_CTYPE_OUTDIGIT3_MB,
+  _NL_CTYPE_OUTDIGIT4_MB,
+  _NL_CTYPE_OUTDIGIT5_MB,
+  _NL_CTYPE_OUTDIGIT6_MB,
+  _NL_CTYPE_OUTDIGIT7_MB,
+  _NL_CTYPE_OUTDIGIT8_MB,
+  _NL_CTYPE_OUTDIGIT9_MB,
+  _NL_CTYPE_OUTDIGIT0_WC,
+  _NL_CTYPE_OUTDIGIT1_WC,
+  _NL_CTYPE_OUTDIGIT2_WC,
+  _NL_CTYPE_OUTDIGIT3_WC,
+  _NL_CTYPE_OUTDIGIT4_WC,
+  _NL_CTYPE_OUTDIGIT5_WC,
+  _NL_CTYPE_OUTDIGIT6_WC,
+  _NL_CTYPE_OUTDIGIT7_WC,
+  _NL_CTYPE_OUTDIGIT8_WC,
+  _NL_CTYPE_OUTDIGIT9_WC,
 
   _NL_TIME_CODESET,
   _NL_TIME_WMON_1,
@@ -301,7 +306,7 @@ enum __nl_item
   _NL_COLLATE_CODESET,
 
   /* This MUST be the last entry since it's used to check for an array
-     index in nl_langinfo(). */
+     index in nl_langinfo(). It also must not exceed _NL_LOCALE_NAME_BASE. */
   _NL_LOCALE_EXTENDED_LAST_ENTRY
 
 #endif /* __HAVE_LOCALE_INFO_EXTENDED__ */
@@ -309,8 +314,19 @@ enum __nl_item
 
 };
 
+/* As an extension, nl_langinfo can retrive the name of a locale
+   category, with this mapping from setlocale() category (other than
+   LC_ALL) to nl_item. */
+#define _NL_LOCALE_NAME_BASE 100000
+#if __GNU_VISIBLE
+#define NL_LOCALE_NAME(category) (_NL_LOCALE_NAME_BASE + (category))
+#endif
+
 __BEGIN_DECLS
-char	*nl_langinfo(nl_item);
+char	*nl_langinfo (nl_item);
+#if __POSIX_VISIBLE >= 200809
+char	*nl_langinfo_l (nl_item, locale_t);
+#endif
 __END_DECLS
 
 #endif /* !_LANGINFO_H_ */
