@@ -20,7 +20,7 @@ import os
 import os.path
 
 pythondir = '/data/jenkins/workspace/GNU-toolchain/arm-13/build-newlib-arm-none-eabi/install/share/gcc-13.2.1/python'
-libdir = '/data/jenkins/workspace/GNU-toolchain/arm-13/build-newlib-arm-none-eabi/install/arm-none-eabi/lib/thumb/v7e-m+dp/hard'
+libdir = '/data/jenkins/workspace/GNU-toolchain/arm-13/build-newlib-arm-none-eabi/install/arm-none-eabi/lib/thumb/v7e-m+dp/softfp'
 
 # This file might be loaded when there is no current objfile.  This
 # can happen if the user loads it manually.  In this case we don't
