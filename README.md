@@ -4,14 +4,14 @@
 
 This is a modified version of the vex SDK to support newer standards of the C/CPP language.  
 
-Things updated:
+"Things" updated:
 
 - make.exe | 4.2 -> 4.4.1
-- GNU ARM.exe's | 2013 -> 13.2.rel1/2023
-  - GCC Arm includes | 4.9.3 -> 13.2.1
+- GNU ARM.exe's | 2013 -> 13.3.rel1/2024
+  - GCC Arm includes | 4.9.3 -> 13.3.1
 
-- clang.exe | 8.0.0 -> 18.1.7
-  - clang includes | 8.0.0 -> 18.1.6
+- clang.exe | 8.0.0 -> 18.1.8
+  - clang includes | 8.0.0 -> 18.1.8
 
 - mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++23
 
