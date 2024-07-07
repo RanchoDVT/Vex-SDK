@@ -4,7 +4,10 @@
 
 This is a modified version of the vex SDK to support newer standards of the C/CPP language.  
 
-"Things" updated:
+> [!WARNING]
+> This is unofficial and in no way affiliated, endorsed, supported, or created by VEX Robotics.
+
+## Things updated:
 
 - make.exe | 4.2 -> 4.4.1
 - GNU ARM.exe's | 2013 -> 13.3.rel1/2024
@@ -20,14 +23,16 @@ This is a modified version of the vex SDK to support newer standards of the C/CP
 Vscode insiders -> "C:\Users\%USERNAME%\AppData\Roaming\Code - Insiders\User\globalStorage\vexrobotics.vexcode"  
 Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\vexrobotics.vexcode"  
 
+
 1. In here, delete the folders `sdk`, and `tools`.  
 2. Then copy the folders `sdk` and `tools` from this repo, and paste it in the folder where you deleted it.  
 3. Load/Reload VsCode
-**VERY IMPORTANT**  
-4. Then in your project, in the `example` folder, there are folders for a platform, paste it into your workspace and replace the files!  
+> [!CAUTION] 
+> **VERY IMPORTANT**  
+> 4: In your project, in the `example` folder, there are folders for a platform, paste it into your workspace and replace the files!  
 
-The technical detail is that vex hardcodes some of the folders that we replace, so we have to change where the makefile looks for it!  
-If you DON'T do this step, and you try to build, vex will auto redownload the sdk, and you will have to do 1-3 AGAIN!  
+Vex code hardcodes the location of the sdk into the makefiles, and if you don't replace it, the sdk will redownload and you will have to do steps 1-3 again!
+(I am making a script to do this, but it only works in powershell ise right now.) 
 
 ## Known problem
 
