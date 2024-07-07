@@ -22,10 +22,10 @@ Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\ve
 
 1. In here, delete the folders `sdk`, and `tools`.  
 2. Then copy the folders `sdk` and `tools` from this repo, and paste it in the folder where you deleted it.  
-3. Load/Reload VsCode and Vex will auto download IQ2 and EXP, as I don't include them to save space :)  
+3. Load/Reload VsCode
 **VERY IMPORTANT**  
-4. Then in your project, in the `example` folder, paste it into your workspace and replace the files!  
-(NOT DONE FOR IQ2 AND EXP)
+4. Then in your project, in the `example` folder, there are folders for a platform, paste it into your workspace and replace the files!  
+
 The technical detail is that vex hardcodes some of the folders that we replace, so we have to change where the makefile looks for it!  
 If you DON'T do this step, and you try to build, vex will auto redownload the sdk, and you will have to do 1-3 AGAIN!  
 
