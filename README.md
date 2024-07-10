@@ -20,6 +20,15 @@ This is a modified version of the vex SDK to support newer standards of the C/CP
 
 ## How can I apply this "update"?
 
+Method 1: Use my new powershell script to do this!
+1: Open it with ISE to view the code, or run as powershell when ready, and follow the prompts!
+(1.3.0b or later)
+
+> [!CAUTION]
+> **VERY IMPORTANT**  
+> 2: In your project, make sure you update your makefiles and json files with your platfrom;  from the examples folder. (It will be on your desktop)   
+
+Method 2: 
 Vscode insiders -> "C:\Users\%USERNAME%\AppData\Roaming\Code - Insiders\User\globalStorage\vexrobotics.vexcode"  
 Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\vexrobotics.vexcode"  
 
@@ -29,7 +38,7 @@ Vscode stable -> "C:\Users\%USERNAME%\AppData\Roaming\Code\User\globalStorage\ve
 
 > [!CAUTION]
 > **VERY IMPORTANT**  
-> 4: In your project, in the `example` folder, there are folders for a platform, paste it into your workspace and replace the files!  
+> 4: In the folder `example` from my sdk, find your platform, and move the files/folders from there into your project.  
 
 Vex code hardcodes the location of the sdk into the makefiles, and if you don't replace it, the sdk will redownload and you will have to do steps 1-3 again!
 (I am making a script to do this, but it only works in powershell ise right now.)
