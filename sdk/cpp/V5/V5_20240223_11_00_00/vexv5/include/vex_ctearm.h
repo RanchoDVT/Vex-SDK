@@ -337,7 +337,7 @@ namespace vex
        * @param[in]  waitForCompletion block until move completes. Default: true
        * @return true if successful
        */
-      bool moveToPositionLinear(double x, double y, double z, double pitch, double roll, double yaw, bool relative = false, bool waitForCompletion = true) override;
+      bool moveToPositionLinear(double x, double y, double z, double pitch, double roll, double yaw, bool relative = false, bool waitForCompletion = true);
       /**
        * @brief      Move tip to x,y,z position and adjust end effector to manual pose
        * @param[in]  x position in mm
@@ -350,7 +350,7 @@ namespace vex
        * @param[in]  waitForCompletion block until move completes. Default: true
        * @return true if successful
        */
-      bool moveToPositionJoint(double x, double y, double z, double pitch, double roll, double yaw, bool relative = false, bool waitForCompletion = true) override;
+      bool moveToPositionJoint(double x, double y, double z, double pitch, double roll, double yaw, bool relative = false, bool waitForCompletion = true);
     };
   };
 };

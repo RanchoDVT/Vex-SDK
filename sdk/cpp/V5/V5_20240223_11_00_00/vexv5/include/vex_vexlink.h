@@ -99,7 +99,7 @@ namespace vex
     int32_t send(uint8_t *buffer, int32_t length);
     int32_t send(const char *buffer, int32_t length)
     {
-      return send(static_cast<uint8_t *>(buffer), length);
+      return send(reinterpret_cast<uint8_t *>(* buffer), length);
     }
 
     int32_t receive(uint8_t *buffer, int32_t length, int32_t timeoutMs = 500);
