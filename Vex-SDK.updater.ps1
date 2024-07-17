@@ -8,6 +8,8 @@ $templatePath = "$env:USERPROFILE\.vscode-insiders\extensions\vexrobotics.vexcod
 $VscodeInsiders = "$env:APPDATA\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
 $VscodeStable = "$env:APPDATA\Code\User\globalStorage\vexrobotics.vexcode"
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
+$CodeVersion = "Powershell 1.4.1"
+$CodeVersionFile = "$env:APPDATA\powershell_version.txt"
 
 # Function to get the latest release version from GitHub
 function Get-LatestReleaseVersion {
@@ -83,12 +85,9 @@ if ($latestVersion -ne $localVersion) {
             # Check if the script has been updated
             $extractedScriptPath = "$extractPath\Vex-SDK-dev\Vex-SDK.updater.ps1"
 
-            if (Test-Path -Path $extractedScriptPath) {
-                $currentScriptPath = $MyInvocation.MyCommand.Path
-                $currentScriptModified = (Get-Item -Path $currentScriptPath).LastWriteTime
-                $extractedScriptModified = (Get-Item -Path $extractedScriptPath).LastWriteTime
+            if ($CodeVersionFile -ne $CodeVersion) {
 
-                    Restart-Script -newScriptPath $extractedScriptPath
+            Restart-Script -newScriptPath $extractedScriptPath
                 
             }
 
@@ -105,6 +104,7 @@ if ($latestVersion -ne $localVersion) {
 
             # Save the new version and commit ID
             "$latestVersion" | Set-Content -Path $localVersionFile
+            "$CodeVersion" | Set-Content -Path $CodeVersionFile
 
             # Clean up
             Remove-Item -Path $zipFilePath -Force
