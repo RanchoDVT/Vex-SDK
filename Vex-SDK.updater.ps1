@@ -1,9 +1,8 @@
-﻿# Define the URL of the GitHub API for the latest release
-$apiUrl = "https://api.github.com/repos/RanchoDVT/Vex-SDK/releases/latest"
+﻿$apiUrl = "https://api.github.com/repos/RanchoDVT/Vex-SDK/releases/latest"
 $localVersionFile = "$env:APPDATA\vex_sdk_version.txt"
 $zipDownloadUrl = "https://github.com/RanchoDVT/Vex-SDK/archive/refs/heads/dev.zip"
-$zipFilePath = "$env:TEMP\dev.zip" # Fallback
-$extractPath = "$env:TEMP\Vex-SDK-dev"# Fallback
+$zipFilePath = "$env:TEMP\dev.zip"
+$extractPath = "$env:TEMP\Vex-SDK-dev"
 $templatePath = "$env:USERPROFILE\.vscode-insiders\extensions\vexrobotics.vexcode-0.6.0\resources"
 $VscodeInsiders = "$env:APPDATA\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
 $VscodeStable = "$env:APPDATA\Code\User\globalStorage\vexrobotics.vexcode"
