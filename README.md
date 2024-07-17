@@ -20,7 +20,7 @@ This is a modified version of the vex SDK to support newer standards of the C/CP
 
 ## How can I apply this "update"?
 
-Method 1: (1.3.0b or later)  
+Method 1: (1.3.0b or later, auto update script 1.4 or later)  
 Use my new powershell script to do this!  
 1: Open it with ISE to view the code, or run as powershell when ready, and follow the prompts!  
 (You don't need admin privileges to run this.)
