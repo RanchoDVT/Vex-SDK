@@ -11,24 +11,27 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-#ifndef   VEX_CONSOLE_CLASS_H
-#define   VEX_CONSOLE_CLASS_H
+#ifndef VEX_CONSOLE_CLASS_H
+#define VEX_CONSOLE_CLASS_H
 
 /*-----------------------------------------------------------------------------*/
 /** @file    vex_console.h
-  * @brief   V5 console class header
-*//*---------------------------------------------------------------------------*/
+ * @brief   V5 console class header
+ */
+/*---------------------------------------------------------------------------*/
 
-namespace vex {
-  class console : public brain {
-    public:
-      console();
-      ~console();
-      
-      void    init();
- 
-    private:
-      static  int32_t write(int32_t fd, char* buf, int32_t nbytes);
+namespace vex
+{
+  class console : public brain
+  {
+  public:
+    console();
+    ~console();
+
+    void init();
+
+  private:
+    static int32_t write(int32_t fd, char *buf, int32_t nbytes);
   };
 }
 

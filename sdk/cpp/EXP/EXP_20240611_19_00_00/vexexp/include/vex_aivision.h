@@ -94,8 +94,10 @@ namespace vex {
           int16_t     _centerY;
           int16_t     _width;
           int16_t     _height;
+          int16_t     _score;
           float       _angle;
           bool        _exists;
+          int32_t     _area;
 
           tagcoords   _tag;      
 
@@ -166,11 +168,11 @@ namespace vex {
           /**
            * @brief The angle of the object.
            */
-          const float &angle;
+          const float    &angle;
           /**
            * @brief If the AI Vision camera detects the object or not.
            */
-          const bool &exists;
+          const bool     &exists;
 
           /**
            * @brief The raw coordinates of an apriltag.
@@ -186,18 +188,28 @@ namespace vex {
            * @brief The color for this object, only valid for color objects.
            */
           const vex::color &color;
+
+          /**
+           * @brief The confidence score for this object, only valid for model objects.
+           */
+          const int16_t  &score;
+
+          /**
+           * @brief The area of the objects bounding box (width x height).
+           */
+          const int32_t  &area;
       };
 
       class objdesc {
         protected:
-          uint8_t   _id;
+          int32_t   _id;
         
         public:
           objdesc();
-          objdesc(uint8_t id);
+          objdesc(int32_t id);
 
           // read only references to internal variables
-          const uint8_t   &id = _id;
+          const int32_t   &id = _id;
       };
 
       /**

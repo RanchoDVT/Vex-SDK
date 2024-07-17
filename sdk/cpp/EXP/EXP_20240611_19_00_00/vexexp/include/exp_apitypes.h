@@ -123,6 +123,7 @@ typedef enum {
   kDeviceTypeArmDevice       = 28,
   kDeviceTypeAiVisionSensor  = 29,
   kDeviceTypePneumaticSensor = 30,
+  kDeviceTypeMC55MotorSensor = 31,
   kDeviceTypeBumperSensor    = 0x40,
   kDeviceTypeGyroSensor      = 0x46,
   kDeviceTypeSonarSensor     = 0x47,
@@ -551,7 +552,8 @@ typedef struct _V5_DeviceArmTipPosition {
     int32_t     tip_roll;
     int32_t     tip_pitch;
     int32_t     tip_yaw;
-    int8_t      pose;
+    int8_t      flags;
+    int8_t      spare;
     uint16_t    velocity;
 } V5_DeviceArmTipPosition;
 

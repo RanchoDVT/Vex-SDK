@@ -1,13 +1,13 @@
 {
-  "version"   : "20240223.11.00.00",
+  "version"   : "20240611.19.00.00",
   
   "platforms" : [
     {
       "name"        : "vexexp",
-      "version"     : "20240223.11.00.00",
-      "vexos"       : "1.0.4",
+      "version"     : "20240611.19.00.00",
+      "vexos"       : "1.0.6",
 
-      "sdk"         : "1.0.4.13",
+      "sdk"         : "1.0.6.3",
       "copyright"   : "VEX Robotics Inc.",
       "product"     : "280-7125",
       "description" : "VEX EXP runtime library",

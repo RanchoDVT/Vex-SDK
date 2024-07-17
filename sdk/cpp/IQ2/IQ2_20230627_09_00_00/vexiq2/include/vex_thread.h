@@ -32,7 +32,7 @@ namespace vex {
       int           _callbackId;
 
     public:
-      thread() : _callback( NULL ) {};
+      thread() : _callback( nullptr ) {};
       /**
       * @brief Creates a thread object.
       * @param callback A reference to a function.
@@ -48,13 +48,13 @@ namespace vex {
       * @brief Creates a thread object.
       * @param callback A reference to a function. 
       */
-      thread( void (* callback)(void) ) : thread( (int (*)(void)) callback ) {}
+      thread(void (*callback)(void)) : thread(reinterpret_cast<int (*)(void)>(callback)) {}
       /**
-      * @brief Creates a thread object.
-      * @param callback A reference to a function.
-      * @param arg A void pointer that is passed to the callback.
-      */
-      thread( void (* callback)(void *), void *arg ) : thread( (int (*)(void *)) callback, arg ) {}
+       * @brief Creates a thread object.
+       * @param callback A reference to a function.
+       * @param arg A void pointer that is passed to the callback.
+       */
+      thread(void (*callback)(void *), void *arg) : thread(reinterpret_cast<int (*)(void *)>(callback), arg) {}
       ~thread();
 
       static const int32_t threadPrioritylow    =  1;

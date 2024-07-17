@@ -35,4 +35,5 @@
 #include "vex_pneumatic.h"
 #include "vex_signaltower.h"
 #include "vex_ctearm.h"
+#include "vex_motor55.h"
 #include "vex_global.h"

@@ -68,6 +68,23 @@ namespace vex {
           };
 
           /**
+           *@brief shortcuts for valid signal tower colors for set_color
+           */
+          static const color   red;
+          static const color   green;
+          static const color   blue;
+          static const color   white;
+          static const color   yellow;
+          static const color   all;
+
+          /**
+           *@brief shortcuts for valid signal tower states for set_color
+           */
+          static const state   on;
+          static const state   off;
+          static const state   blink;
+          
+          /**
            * @brief Sets the signal tower to a color
            * @param color the color to use, red, green etc.
            * @note This is used to set a single led, we can set as red, green, yellow etc. using vex::color

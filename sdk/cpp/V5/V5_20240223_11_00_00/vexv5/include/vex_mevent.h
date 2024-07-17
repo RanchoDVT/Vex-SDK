@@ -11,27 +11,30 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-#ifndef   VEX_MEVENT_CLASS_H
-#define   VEX_MEVENT_CLASS_H
+#ifndef VEX_MEVENT_CLASS_H
+#define VEX_MEVENT_CLASS_H
 
 /*-----------------------------------------------------------------------------*/
 /** @file    vex_mevent.h
-  * @brief   V5 alternate event class header
-*//*---------------------------------------------------------------------------*/
+ * @brief   V5 alternate event class header
+ */
+/*---------------------------------------------------------------------------*/
 
-namespace vex {
-    class mevent {
-        private:
-          int   _event_id;
-          int   _index;
-          
-        public:
-          mevent() : _event_id(-1) {};
-          mevent( uint32_t index, uint32_t id );
-          ~mevent() {};
-                    
-          operator int() const;
-    };
+namespace vex
+{
+  class mevent
+  {
+  private:
+    int _event_id;
+    int _index;
+
+  public:
+    mevent() : _event_id(-1) {};
+    mevent(uint32_t index, uint32_t id);
+    ~mevent() {};
+
+    operator int() const;
+  };
 }
 
 #endif // VEX_MEVENT_CLASS_H

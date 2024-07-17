@@ -92,6 +92,7 @@ void                vexMotorRelativeTargetSet( uint32_t index, double position, 
 void                vexMotorGearingSet( uint32_t index, V5MotorGearset value );
 V5MotorGearset      vexMotorGearingGet( uint32_t index );
 void                vexMotorExternalProfileSet( uint32_t index, double position, int32_t velocity );
+int32_t             vexMotorTypeGet( uint32_t index );
 
 void                vexVisionModeSet( uint32_t index, V5VisionMode mode );
 V5VisionMode        vexVisionModeGet( uint32_t index );
@@ -219,15 +220,15 @@ void                vexPneumaticCylinderPwmSet( uint32_t index, uint32_t id, boo
 uint32_t            vexPneumaticActuationStatusGet( uint32_t index, uint16_t *ac1, uint16_t *ac2, uint16_t *ac3, uint16_t *ac4 );
 
 void                vexArmPoseSet( uint32_t index, uint8_t pose, uint16_t velocity );
-void                vexArmMoveTipCommandLinear( uint32_t index, int32_t x, int32_t y, int32_t z, uint8_t pose, uint16_t velocity, double j6_rotation, uint16_t j6_velocity, bool relative );
-void                vexArmMoveTipCommandJoint( uint32_t index, int32_t x, int32_t y, int32_t z, uint8_t pose, uint16_t velocity, double j6_rotation, uint16_t j6_velocity, bool relative );
+void                vexArmMoveTipCommandLinear( uint32_t index, int32_t x, int32_t y, int32_t z, uint8_t flags, uint16_t velocity, double j6_rotation, uint16_t j6_velocity, bool relative );
+void                vexArmMoveTipCommandJoint( uint32_t index, int32_t x, int32_t y, int32_t z, uint8_t flags, uint16_t velocity, double j6_rotation, uint16_t j6_velocity, bool relative );
 void                vexArmMoveJointsCommand( uint32_t index, double *positions, uint16_t* velocities, double j6_rotation, uint16_t j6_velocity, double j7_volts, uint16_t j7_timeout, uint16_t j7_i_limit, bool relative );
 void                vexArmSpinJoints( uint32_t index, double *velocities );
 void                vexArmSetJointPositions( uint32_t index, double *new_positions );
 void                vexArmPickUpCommand( uint32_t index );
 void                vexArmDropCommand( uint32_t index );
 void                vexArmMoveVoltsCommand( uint32_t index, double *voltages );
-void                vexArmFullStop( uint32_t index, uint8_t brakeMode );
+void                vexArmFullStop( uint32_t index, uint8_t flags );
 void                vexArmEnableProfiler( uint32_t index, uint8_t enable );
 void                vexArmProfilerVelocitySet(  uint32_t index, uint16_t linear_velocity, uint16_t joint_velocity );
 void                vexArmSaveZeroValues( uint32_t index );

@@ -154,6 +154,7 @@ void                  vexDeviceMotorRelativeTargetSet( V5_DeviceT device, double
 void                  vexDeviceMotorGearingSet( V5_DeviceT device, V5MotorGearset value );
 V5MotorGearset        vexDeviceMotorGearingGet( V5_DeviceT device );
 void                  vexDeviceMotorExternalProfileSet( V5_DeviceT device, double position, int32_t velocity );
+int32_t               vexDeviceMotorTypeGet( V5_DeviceT device );
 
 // Vision sensor
 void                  vexDeviceVisionModeSet( V5_DeviceT device, V5VisionMode mode );
@@ -298,7 +299,7 @@ void                  vexDeviceArmSetJointPositions( V5_DeviceT device, double *
 void                  vexDeviceArmPickUpCommand( V5_DeviceT device );
 void                  vexDeviceArmDropCommand( V5_DeviceT device );
 void                  vexDeviceArmMoveVoltsCommand( V5_DeviceT device, double *voltages );
-void                  vexDeviceArmFullStop( V5_DeviceT device, uint8_t brakeMode );
+void                  vexDeviceArmFullStop( V5_DeviceT device, uint8_t flags );
 void                  vexDeviceArmEnableProfiler( V5_DeviceT device, uint8_t enable );
 void                  vexDeviceArmProfilerVelocitySet(  V5_DeviceT device, uint16_t linear_velocity, uint16_t joint_velocity );
 void                  vexDeviceArmSaveZeroValues( V5_DeviceT device );

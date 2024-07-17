@@ -39,7 +39,7 @@ namespace vex {
     public:
       device();
       device( int32_t index );  
-      ~device();
+      virtual ~device();
       
       IQ_DeviceType   type();
       int32_t         index();

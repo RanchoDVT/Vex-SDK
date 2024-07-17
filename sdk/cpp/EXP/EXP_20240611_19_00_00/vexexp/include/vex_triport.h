@@ -523,7 +523,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the potentiometer device.
          * @param units The measurement unit for the potentiometer device. 
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -575,7 +575,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the potentiometer device.
          * @param units The measurement unit for the potentiometer device. 
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -628,7 +628,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the line follower.
          * @param units The measurement unit for the line device. 
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -706,13 +706,13 @@ namespace vex {
         void      changed( void (* callback)(void) );
 
         /**
-         * @brief Calls a function when an object is detected.
+         * @brief Calls a function when an object is lost.
          * @param callback A reference to a function.
          */
         void      objectLost( void (* callback)(void) );
 
         /**
-         * @brief Calls a function when an object is lost.
+         * @brief Calls a function when an object is detected.
          * @param callback A reference to a function.
          */
         void      objectDetected( void (* callback)(void) );
@@ -747,7 +747,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the light sensor.
          * @param units The measurement unit for the light device.
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -796,7 +796,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the gyro sensor.
          * @param units The measurement unit for the gyro device.
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -911,7 +911,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the accelerometer sensor.
          * @param units The measurement unit for the accelerometer device. 
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 
@@ -956,7 +956,7 @@ namespace vex {
          * @return Returns an integer that represents the unit value specified by the parameter of the analog-in device.
          * @param units The measurement unit for the analog-in device.
          */
-        int32_t   value( percentUnits units ) {
+        int32_t   value( percentUnits ) {
           return value( analogUnits::pct );
         };
 

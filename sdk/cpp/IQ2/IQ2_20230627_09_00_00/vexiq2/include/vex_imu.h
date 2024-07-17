@@ -88,7 +88,7 @@ namespace vex {
           double    d;
 
           // set equal to another quaternion
-          quaternion& operator=(const inertial::quaternion other);
+          quaternion& operator=(const inertial::quaternion &other);
 
           // Return this quaternion's conjugate.
           quaternion conjugate() const;
@@ -332,7 +332,7 @@ namespace vex {
           ~gyro();
 
           // set equal to another gyro
-          gyro& operator=(const inertial::gyro other);
+          gyro& operator=(const inertial::gyro &other);
 
           double  & gx = _gx;
           double  & gy = _gy;
@@ -355,7 +355,7 @@ namespace vex {
           ~accel();
 
           // set equal to another gyro
-          accel& operator=(const inertial::accel other);
+          accel& operator=(const inertial::accel &other);
 
           double  & ax = _ax;
           double  & ay = _ay;

@@ -14,64 +14,66 @@
 #ifndef VEX_ROBOT_ARM_H
 #define VEX_ROBOT_ARM_H
 
-namespace vex {
+namespace vex
+{
   class RoboticArm
   {
   public:
-
-    struct Position {
+    struct Position
+    {
       double x, y, z, a;
     };
 
-    struct Angle {
+    struct Angle
+    {
       double j1, j2, j3, j4;
     };
 
   private:
-
     // This describes tool tip positions
-    struct Quad {
-      double  a, b, c, d;
+    struct Quad
+    {
+      double a, b, c, d;
     };
 
-    #define PFLAG_CHANGE_POSITION 1
-    #define PFLAG_CHANGE_FILTER   2
-    #define PFLAG_CHANGE_VELOCITY 4
+#define PFLAG_CHANGE_POSITION 1
+#define PFLAG_CHANGE_FILTER 2
+#define PFLAG_CHANGE_VELOCITY 4
 
-    // These are the physical dimensions of the robot arm
-    #define ARM_A 7.0
-    #define ARM_B 7.0
-    #define ARM_C 1.9509
-    #define ARM_D 0.0555
-    #define ARM_P0r 0.7224
-    #define ARM_P0z 5.296
-    #define ARM_z3 0.7
+// These are the physical dimensions of the robot arm
+#define ARM_A 7.0
+#define ARM_B 7.0
+#define ARM_C 1.9509
+#define ARM_D 0.0555
+#define ARM_P0r 0.7224
+#define ARM_P0z 5.296
+#define ARM_z3 0.7
 
-    // These variables are for the double boxcar filter used for velocity profiling
-    #define FILTERSIZE  1000
+// These variables are for the double boxcar filter used for velocity profiling
+#define FILTERSIZE 1000
     Quad Vfilter[FILTERSIZE];       // Velocity boxcar filter static array
     Quad Afilter[FILTERSIZE];       // Acceleration boxcar filter static array
     Quad VfilterSum, AfilterSum;    // Running sums for the two filters
     int Vhead, Vtail, Ahead, Atail; // Pointer integers into the boxcar filters circular buffers
     Angle Last;                     // Remember the last target angles in order to compute the expected motor velocities
 
-    // Variables used to keep track of position movements and the profiling
-    #define LOOPTIME  0.01  // 100 times per second
-    double  PosVelocity = 10.0, AngVelocity = 90.0;
-    double  TargetX, TargetY, TargetZ, TargetA; // This is the command position coming from the user or user's exective program. This is where we want the motor to go to.
-    double  PosX, PosY, PosZ, PosA; // This is the integration of the filtered velocity - the target profile we want the motor to follow
-    double  UnfilX, UnfilY, UnfilZ, UnfilA; // This is the instantaneous integrated velocity. This tells us where the motor is going to end up after it goes through its profile
-    int     VFilterLen = 50, AFilterLen = 50; // This is the size of the boxcar filters
-    int     VFilterBuf, AFilterBuf;
-    int     ProfileLoopFlag = 0;
-    double  BufX, BufY, BufZ, BufA;
-  
+// Variables used to keep track of position movements and the profiling
+#define LOOPTIME 0.01 // 100 times per second
+    double PosVelocity = 10.0, AngVelocity = 90.0;
+    double TargetX, TargetY, TargetZ, TargetA; // This is the command position coming from the user or user's exective program. This is where we want the motor to go to.
+    double PosX, PosY, PosZ, PosA;             // This is the integration of the filtered velocity - the target profile we want the motor to follow
+    double UnfilX, UnfilY, UnfilZ, UnfilA;     // This is the instantaneous integrated velocity. This tells us where the motor is going to end up after it goes through its profile
+    int VFilterLen = 50, AFilterLen = 50;      // This is the size of the boxcar filters
+    int VFilterBuf, AFilterBuf;
+    int ProfileLoopFlag = 0;
+    double BufX, BufY, BufZ, BufA;
+
     double J1_OFFSET = 0; // This relates the measured values to the mastering values
     double J2_OFFSET = 0;
     double J3_OFFSET = 0;
     double J4_OFFSET = 0;
 
-    double  I1 = 0.0, I2 = 0.0, I3 = 0.0, I4 = 0.0; // Motor integrators
+    double I1 = 0.0, I2 = 0.0, I3 = 0.0, I4 = 0.0; // Motor integrators
 
     Position Offset = {.x = 0.0, .y = 0.0, .z = 0.0, .a = 0.0};
 
@@ -107,10 +109,8 @@ namespace vex {
     bool profilerThreadDisabled = false;
     // local changes end
 
-
   public:
-
-    RoboticArm(motor& joint1Motor, pot& joint1Pot, motor& joint2Motor, pot& joint2Pot, motor& joint3Motor, pot& joint3Pot, motor& joint4Motor, pot& joint4Pot);
+    RoboticArm(motor &joint1Motor, pot &joint1Pot, motor &joint2Motor, pot &joint2Pot, motor &joint3Motor, pot &joint3Pot, motor &joint4Motor, pot &joint4Pot);
 
     void setMasteringValues(int joint1Value, int joint2Value, int joint3Value, int joint4Value);
 
@@ -127,7 +127,6 @@ namespace vex {
 
     void setLinearMoveSpeed(double speed);
     void setJointMoveSpeed(double speed);
-
 
     void setRelativePosition(double x, double y, double z);
 
@@ -153,7 +152,6 @@ namespace vex {
     void enterMasteringMode(void);
 
   private:
-
     void velocityFilter(double vx, double vy, double vz, double va);
     void initializeProfilePosition(void);
     void initializeProfileAngle(void);
@@ -169,11 +167,10 @@ namespace vex {
     double getJ3(void);
     double getJ4(void);
     void forwardKinematicSolve(double t, double a1, double b1, double c1, Position &output);
-    void inverseKinematicSolve(double x,double y,double z,double a, Angle &output);
-    
-    static int profilerTaskHelper(void* armPtr);
+    void inverseKinematicSolve(double x, double y, double z, double a, Angle &output);
+
+    static int profilerTaskHelper(void *armPtr);
   };
 };
 
-#endif  // VEX_ROBOT_ARM_H
-
+#endif // VEX_ROBOT_ARM_H
