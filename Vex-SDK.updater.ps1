@@ -1,8 +1,9 @@
-﻿$apiUrl = "https://api.github.com/repos/RanchoDVT/Vex-SDK/releases/latest"
+﻿# Define the URL of the GitHub API for the latest release
+$apiUrl = "https://api.github.com/repos/RanchoDVT/Vex-SDK/releases/latest"
 $localVersionFile = "$env:APPDATA\vex_sdk_version.txt"
 $zipDownloadUrl = "https://github.com/RanchoDVT/Vex-SDK/archive/refs/heads/dev.zip"
-$zipFilePath = "$env:TEMP\dev.zip"
-$extractPath = "$env:TEMP\Vex-SDK-dev"
+$zipFilePath = "$env:TEMP\dev.zip" # Fallback
+$extractPath = "$env:TEMP\Vex-SDK-dev"# Fallback
 $templatePath = "$env:USERPROFILE\.vscode-insiders\extensions\vexrobotics.vexcode-0.6.0\resources"
 $VscodeInsiders = "$env:APPDATA\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
 $VscodeStable = "$env:APPDATA\Code\User\globalStorage\vexrobotics.vexcode"
@@ -17,12 +18,26 @@ function Get-LatestReleaseVersion {
     return $latestTag
 }
 
-# Function to restart the script with a new version
+# Function to restart the script with a new version in PowerShell ISE
 function Restart-Script {
     param ([string]$newScriptPath)
     
-    Write-Output "A new version of the script is detected. Restarting with the new version..."
-    Start-Process -FilePath "powershell" -ArgumentList "-File `"$newScriptPath`"" -NoNewWindow
+    Write-Output "A new version of the script is detected. Powershell ISE will open. Click the green run button at the top."
+    
+    # Open the new script in PowerShell ISE
+    Start-Process -FilePath "powershell_ise.exe" -ArgumentList "`"$newScriptPath`"" -NoNewWindow
+
+    # Wait for the ISE process to start
+    Start-Sleep -Seconds 2
+
+    # Start the new script task in ISE
+    $script = @"
+`$psISE.CurrentPowerShellTab.Files.Add(`"$newScriptPath`")
+`$psISE.CurrentPowerShellTab.Files[`$psISE.CurrentPowerShellTab.Files.Count-1].Editor.Text = Get-Content -Path `"$newScriptPath`" -Raw
+"@
+
+    Invoke-Expression $script
+    
     exit
 }
 
@@ -73,9 +88,8 @@ if ($latestVersion -ne $localVersion) {
                 $currentScriptModified = (Get-Item -Path $currentScriptPath).LastWriteTime
                 $extractedScriptModified = (Get-Item -Path $extractedScriptPath).LastWriteTime
 
-                if ($extractedScriptModified -gt $currentScriptModified) {
                     Restart-Script -newScriptPath $extractedScriptPath
-                }
+                
             }
 
             # Remove existing folders
