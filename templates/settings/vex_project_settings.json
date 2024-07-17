@@ -1,0 +1,14 @@
+{
+    "Project_Name": "Project Name",
+    "Description": "This is where the project descript will go", 
+    "VEX_Platform": "", 
+    "Build": {
+        "RunAfterDownload": false,
+        "includePath": ["",""],       
+        "outputPath": "",              
+        "sdkPath": "",                
+        "ToolchainPath": ""
+    },
+    "version":1 
+
+}

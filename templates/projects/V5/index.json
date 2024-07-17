@@ -1,0 +1,747 @@
+{
+  "version" : "20180818.21.41",
+  
+  "examples" : [ 
+    {
+      "category" : "Templates",
+      "samples" : [
+        {
+          "name": "Clawbot Template (Drivetrain 2-motor)",
+          "description": "Blank Pre-Configured V5 Clawbot 2-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Claw_Drive_Temp.zip"
+            }
+          ]
+        },
+        {
+          "name": "Clawbot Template (Drivetrain 4-motor)",
+          "description": "Blank Pre-Configured V5 Clawbot 4-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Claw_4drive_gyro_temp.zip"
+            }
+          ]
+        },
+        {
+          "name": "Clawbot Template (2-motor Drivetrain, No Gyro)",
+          "description": "Blank Pre-Configured V5 Clawbot 2-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Drive_Temp_Nogyro.zip"
+            }
+          ]
+        },
+        {
+          "name": "Clawbot Template (4-motor Drivetrain, No Gyro)",
+          "description": "Blank Pre-Configured V5 Clawbot 4-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Claw_4drive_Nogyro_temp.zip"
+            }
+          ]
+        },
+        {
+          "name": "Clawbot Template (Motors)",
+          "description": "Blank Pre-Configured V5 Clawbot Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Claw_Motor_Temp.zip"
+            }
+          ]
+        },
+        {
+          "name": "Clawbot Competition Template",
+          "description": "Competition template with a Clawbot configured",
+          "icon": "",
+          "files": [
+            {
+              "name": "Clawbot_Competition.zip"
+            }
+          ]
+        },
+        {
+          "name": "Competition Template",
+          "description": "Competition template with no devices configured",
+          "icon": "",
+          "files": [
+            {
+              "name": "Competition_Template.zip"
+            }
+          ]
+        },
+        {
+          "name": "SDV (Drivetrain 2-motor)",
+          "description": "Blank Pre-Configured SDV Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "SDV_Drivetrain.zip"
+            }
+          ]
+        },
+        {
+          "name": "SDV (Motors)",
+          "description": "Blank Pre-Configured SDV Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "SDV_Motors.zip"
+            }
+          ]
+        },
+        {
+          "name": "Speedbot (Drivetrain 2-motor, No Gyro)",
+          "description": "Blank Pre-Configured V5 Speedbot 2-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Speedbot_DT_NoGyro.zip"
+            }
+          ]
+        },
+        {
+          "name": "Speedbot (Drivetrain 4-motor, No Gyro)",
+          "description": "Blank Pre-Configured V5 Speedbot 4-motor Drivetrain Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Speed_bot_fourDT.zip"
+            }
+          ]
+        },
+        {
+          "name": "Speedbot (Motors)",
+          "description": "Blank Pre-Configured V5 Speedbot Project",
+          "icon": "",
+          "files": [
+            {
+              "name": "Speedbot_Motors.zip"
+            }
+          ]
+        }      
+      ]
+    },
+  {
+    "category": "Motion",
+    "samples": [
+      {
+        "name": "Claw and Arm",
+        "description": "Use the claw and arm to transport an object",
+        "files": [
+          {
+            "name": "Claw_And_Arm.zip"
+          }
+        ]
+      },
+      {
+        "name": "Using The Arm (degrees)",
+        "description": "Raise and lower the arm to specific positions",
+        "files": [
+          {
+            "name": "Using_The_Arm.zip"
+          }
+        ]
+      },
+      {
+        "name": "Using The Claw (degrees)",
+        "description": "Open and close the claw on your V5 robot",
+        "files": [
+          {
+            "name": "Using_The_Claw.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Drivetrain",
+    "samples": [
+      {
+        "name": "Adjusting Speed",
+        "description": "Change the speed of a drivetrain's drive and turn actions",
+        "files": [
+          {
+            "name": "Adjusting_Speed.zip"
+          }
+        ]
+      },
+      {
+        "name": "Drivetrain with Variables",
+        "description": "Change the drive distance with variables",
+        "files": [
+          {
+            "name": "Drivetrain_With_Vars.zip"
+          }
+        ]
+      },       
+      {
+        "name": "Moving Backwards (inches)",
+        "description": "Drives the robot in reverse for 6 inches",
+        "files": [
+          {
+            "name": "Moving_Backwards_In.zip"
+          }
+        ]
+      },
+      {
+        "name": "Moving Backwards (mm)",
+        "description": "Drives the robot in reverse for 150 millimeters",
+        "files": [
+          {
+            "name": "Moving_Backwards_Mm.zip"
+          }
+        ]
+      },
+      {
+        "name": "Moving Forward (inches)",
+        "description": "Drives the robot forward for 6 inches",
+        "files": [
+          {
+            "name": "Moving_Forward_In.zip"
+          }
+        ]
+      },
+      {
+        "name": "Moving Forward (mm)",
+        "description": "Drives the robot forward for 150 millimeters",
+        "files": [
+          {
+            "name": "Moving_Forward_Mm.zip"
+          }
+        ]
+      },
+      {
+        "name": "Turning Left (degrees)",
+        "description": "Turns the robot left 90 degrees",
+        "files": [
+          {
+            "name": "Turn_Left_Degrees.zip"
+          }
+        ]
+      },
+      {
+        "name": "Turning Right (degrees)",
+        "description": "Turns the robot right 90 degrees",
+        "files": [
+          {
+            "name": "Turn_Right_Degrees.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Magnet",
+    "samples": [
+      {
+        "name": "Electromagnet Actions",
+        "description": "Use the electromagnet to pick up and drop magnetic objects",
+        "files": [
+          {
+            "name": "Electromagnet_Actions.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Arm",
+    "samples": [
+      {
+        "name": "Arm Display Position",
+        "description": "Disploays the current position of the arm on the brain's screen",
+        "files": [
+          {
+            "name": "ArmDisplayPosition.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Install",
+        "description": "Setup the potentiometers for your V5 Workcell arm",
+        "files": [
+          {
+            "name": "ArmInstall.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Jogging",
+        "description": "Control the Workcell Arm by pressing buttons on the screen of the V5 Brain",
+        "files": [
+          {
+            "name": "ArmJogging.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Manual Movement",
+        "description": "Displays the current position of the arm on the V5 Brain's screen and move the arm around manually",
+        "files": [
+          {
+            "name": "ArmManualMovement.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Mastering",
+        "description": "Helps you to find the mastering values for your Workcell Arm",
+        "files": [
+          {
+            "name": "ArmMastering.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm UI Panel",
+        "description": "Configure the Workcell Arm and display a basic UI on the V5 Brain's screen that you can configure",
+        "files": [
+          {
+            "name": "ArmUIPanel.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Workcell - No Sensors",
+        "description": "Get started with the V5 Workcell without sensors",
+        "files": [
+          {
+            "name": "ArmWorkcellNoSensors.zip"
+          }
+        ]
+      },
+      {
+        "name": "Arm Workcell - With Sensors",
+        "description": "Get started with the V5 Workcell with sensors",
+        "files": [
+          {
+            "name": "ArmWorkcellSensors.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Looks",
+    "samples": [
+      {
+        "name": "Drawing Shapes",
+        "description": "Learn to draw shapes and lines on the V5 Brain's Screen.",
+        "files": [
+          {
+            "name": "Drawing_Shapes.zip"
+          }
+        ]
+      },
+      {
+        "name": "Printing Text",
+        "description": "Print text to the V5 Brain's Screen",
+        "files": [
+          {
+            "name": "Printing_Text.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Control",
+    "samples": [
+      {
+        "name": "Comparing Values",
+        "description": "Print text based on the value of a number",
+        "files": [
+          {
+            "name": "Comparing_Values.zip"
+          }
+        ]
+      },
+      {
+        "name": "Creating a Start Button",
+        "description": "Press the Brain's Screen to start your program",
+        "files": [
+          {
+            "name": "Create_Start_Button.zip"
+          }
+        ]
+      },
+      {
+        "name": "Floor Sweeper",
+        "description": "Use random numbers to calculate turns",
+        "files": [
+          {
+            "name": "Floor_Sweeper.zip"
+          }
+        ]
+      },
+      {
+        "name": "Functions (Returns)",
+        "description": "Use a function to add ten to an integer",
+        "files": [
+          {
+            "name": "Functions_Returns.zip"
+          }
+        ]
+      },
+      {
+        "name": "Functions (No Returns)",
+        "description": "Use a function to print messages on empty rows",
+        "files": [
+          {
+            "name": "Functions_NoReturn.zip"
+          }
+        ]
+      },
+      {
+        "name": "Making Decisions",
+        "description": "Use the range finder to make a decision",
+        "files": [
+          {
+            "name": "Making_Decisions.zip"
+          }
+        ]
+      },
+      {
+        "name": "Multitasking (Tasks)",
+        "description": "Use tasks to run multiple functions at the same time.",
+        "files": [
+          {
+            "name": "Multitasking_Tasks.zip"
+          }
+        ]
+      },
+      {
+        "name": "Multithreading (Threads)",
+        "description": "Use threads to run multiple functions at the same time.",
+        "files": [
+          {
+            "name": "Multithreading_Threads.zip"
+          }
+        ]
+      },
+      {
+        "name": "Repeating Actions",
+        "description": "Use a loop to repeat robot movements",
+        "files": [
+          {
+            "name": "Repeating_Actions.zip"
+          }
+        ]
+      },
+      {
+        "name": "Repeating Actions (Clawbot)",
+        "description": "Use a loop to repeat robot movements",
+        "files": [
+          {
+            "name": "Repeating_ActionClaw.zip"
+          }
+        ]
+      },
+      {
+        "name": "Repeating Actions (No Gyro)",
+        "description": "Use a loop to repeat robot movements",
+        "files": [
+          {
+            "name": "Repeating_ActionNoGy.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Sensing",
+    "samples": [
+      {
+        "name": "Accurate Turns",
+        "description": "Use the Gyro to turn 90 degrees",
+        "files": [
+          {
+            "name": "Accurate_turns.zip"
+          }
+        ]
+      },
+      {
+        "name": "Accurate Turns (Inertial Sensor)",
+        "description": "Use the Inertial Sensor to turn 90 degrees",
+        "files": [
+          {
+            "name": "Accurate_turns_inert.zip"
+          }
+        ]
+      },
+      {
+        "name": "Clawbot Control",
+        "description": "Use events to drive the clawbot",
+        "files": [
+          {
+            "name": "Clawbot_Control.zip"
+          }
+        ]
+      },
+      {
+        "name": "Controller Buttons",
+        "description": "Using the V5 Controller Buttons",
+        "files": [
+          {
+            "name": "Controller_Buttons.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detect Collisions",
+        "description": "Use the accelerometer to detect collisions",
+        "files": [
+          {
+            "name": "Detect_Collisions.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detecting Distances",
+        "description": "Use the Range Finder to detect distance",
+        "files": [
+          {
+            "name": "Detecting_Distances.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detecting Light",
+        "description": "Use the Light Sensor to detect the lighting of the room",
+        "files": [
+          {
+            "name": "Detecting_Light.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detecting Objects (Vision)",
+        "description": "Use the Vision Sensor to detect three colors",
+        "files": [
+          {
+            "name": "Detecting_Objects.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detecting Walls (Bumper)",
+        "description": "Stops the robot when the Bumper is pressed",
+        "files": [
+          {
+            "name": "Detecting_Walls.zip"
+          }
+        ]
+      },
+      {
+        "name": "Detecting Walls (Bumper on 3-Wire Expander)",
+        "description": "Stops the robot when the Bumper is pressed",
+        "files": [
+          {
+            "name": "3-wire_expander.zip"
+          }
+        ]
+      },
+      {
+        "name": "Digital In Sensing",
+        "description": "Use a Digital In device to read input signals from another device",
+        "files": [
+          {
+            "name": "DigitalInSensing.zip"
+          }
+        ]
+      },
+      {
+        "name": "Digital Out Sensing",
+        "description": "Control another device using the Digital Out device",
+        "files": [
+          {
+            "name": "DigitalOutSensing.zip"
+          }
+        ]
+      },
+      {
+        "name": "Drive to Location (Known Starting Position)",
+        "description": "Use a GPS Sensor to drive to a field's center along the X-axis, then the Y-axis, from a known starting position",
+        "files": [
+          {
+            "name": "DriveLocationKnown.zip"
+          }
+        ]
+      },
+      {
+        "name": "Drive to Location (Unknown Starting Position)",
+        "description": "Use a GPS Sensor to drive to a specified position from a random starting position",
+        "files": [
+          {
+            "name": "DriveLocationUnknown.zip"
+          }
+        ]
+      },
+      {
+        "name": "Drive to Location (Using Tangents)",
+        "description": "Use a GPS Sensor to drive directly to a field's center from a random starting position",
+        "files": [
+          {
+            "name": "DriveLocationTangent.zip"
+          }
+        ]
+      },
+      {
+        "name": "Distance Sensing",
+        "description": "Use the Distance Sensor to get distance and size information of an object",
+        "files": [
+          {
+            "name": "Distance_Sensing.zip"
+          }
+        ]
+      },
+      {
+        "name": "Inertial Printing Demo",
+        "description": "Prints values of the Inertial Sensor",
+        "files": [
+          {
+            "name": "Inertial_printing_demo.zip"
+          }
+        ]
+      },
+      {
+        "name": "Left Arcade",
+        "description": "Control the V5 Clawbot with the left joystick",
+        "files": [
+          {
+            "name": "Left_Arcade.zip"
+          }
+        ]
+      },
+      {
+        "name": "Limiting Movement",
+        "description": "Use a limit switch to stop arm movement",
+        "files": [
+          {
+            "name": "Limiting_Movement.zip"
+          }
+        ]
+      },
+      {
+        "name": "Line Tracking",
+        "description": "Move a robot a long a line by tracking it",
+        "files": [
+          {
+            "name": "Line_Tracking.zip"
+          }
+        ]
+      },
+      {
+        "name": "Optical Sensing",
+        "description": "Use an Optical Sensor to get hue and brightness values of an object",
+        "files": [
+          {
+            "name": "Optical_Sensing.zip"
+          }
+        ]
+      },
+      {
+        "name": "Positioning Servos",
+        "description": "This program will spin the servo to different positions",
+        "files": [
+          {
+            "name": "Positioning_Servos.zip"
+          }
+        ]
+      },
+      {
+        "name": "Reading Angles",
+        "description": "Print the potentiometer values to the V5 Brain's Screen",
+        "files": [
+          {
+            "name": "Reading_Angles.zip"
+          }
+        ]
+      },
+      {
+        "name": "Right Arcade",
+        "description": "Control the V5 Clawbot with the right joystick",
+        "files": [
+          {
+            "name": "Right_Arcade.zip"
+          }
+        ]
+      },
+      {
+        "name": "Rotation Sensing",
+        "description": "Use a Rotation Sensor to get angular and positional data of an axle",
+        "files": [
+          {
+            "name": "Rotation_Sensing.zip"
+          }
+        ]
+      },
+      {
+        "name": "Split Arcade",
+        "description": "Control the V5 Clawbot with both joysticks.",
+        "files": [
+          {
+            "name": "Split_Arcade.zip"
+          }
+        ]
+      },
+      {
+        "name": "Tank Drive",
+        "description": "Control the V5 Clawbot with both joysticks.",
+        "files": [
+          {
+            "name": "Tank_Drive.zip"
+          }
+        ]
+      },
+      {
+        "name": "Using 393s",
+        "description": "Using 393s with your V5 robot",
+        "files": [
+          {
+            "name": "Using_393s.zip"
+          }
+        ]
+      },
+      {
+        "name": "Using LEDs",
+        "description": "Turn LEDs on and off",
+        "files": [
+          {
+            "name": "Using_LEDS.zip"
+          }
+        ]
+      },
+      {
+        "name": "Using Quad Encoders",
+        "description": "Use Quad Encoders to track the rotation of a shaft",
+        "files": [
+          {
+            "name": "Using_Quad_Encoders.zip"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category" : "Variables",
+    "samples" : [
+      {
+        "name": "2D Arrays",
+        "description": "Use nested for loops to print values of a 2D Array.",
+        "files": [
+          {
+            "name": "2D_Arrays.zip"
+          }
+        ]
+      }
+    ]
+  }
+  ]
+}

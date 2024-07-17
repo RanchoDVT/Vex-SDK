@@ -1,0 +1,43 @@
+{
+    "env": {
+        "vex_sdkPath": "",
+        "vex_compilerPath": "",
+        "vex_sdkIncludes": []
+    },
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${vex_sdkIncludes}"
+            ],
+            "compilerPath": "${vex_compilerPath}",
+            "cStandard": "gnu23",
+            "cppStandard": "gnu++23",
+            "intelliSenseMode": "windows-clang-x86",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "Mac",
+            "includePath": [
+                "${vex_sdkIncludes}"
+            ],
+            "compilerPath": "${vex_compilerPath}",
+            "cStandard": "gnu23",
+            "cppStandard": "gnu++23",
+            "intelliSenseMode": "macos-clang-x86",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "${vex_sdkIncludes}"
+            ],
+            "compilerPath": "${vex_compilerPath}",
+            "cStandard": "gnu23",
+            "cppStandard": "gnu++23",
+            "intelliSenseMode": "linux-clang-x86",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}
