@@ -8,8 +8,6 @@ $templatePath = "$env:USERPROFILE\.vscode-insiders\extensions\vexrobotics.vexcod
 $VscodeInsiders = "$env:APPDATA\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
 $VscodeStable = "$env:APPDATA\Code\User\globalStorage\vexrobotics.vexcode"
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
-$CodeVersion = "Powershell 1.4.1"
-$CodeVersionFile = "$env:APPDATA\powershell_version.txt"
 
 # Function to get the latest release version from GitHub
 function Get-LatestReleaseVersion {
@@ -18,29 +16,6 @@ function Get-LatestReleaseVersion {
     $response = Invoke-RestMethod -Uri $url -Headers @{ "User-Agent" = "PowerShell" }
     $latestTag = $response.tag_name
     return $latestTag
-}
-
-# Function to restart the script with a new version in PowerShell ISE
-function Restart-Script {
-    param ([string]$newScriptPath)
-    
-    Write-Output "A new version of the script is detected. Powershell ISE will open. Click the green run button at the top."
-    
-    # Open the new script in PowerShell ISE
-    Start-Process -FilePath "powershell_ise.exe" -ArgumentList "`"$newScriptPath`"" -NoNewWindow
-
-    # Wait for the ISE process to start
-    Start-Sleep -Seconds 2
-
-    # Start the new script task in ISE
-    $script = @"
-`$psISE.CurrentPowerShellTab.Files.Add(`"$newScriptPath`")
-`$psISE.CurrentPowerShellTab.Files[`$psISE.CurrentPowerShellTab.Files.Count-1].Editor.Text = Get-Content -Path `"$newScriptPath`" -Raw
-"@
-
-    Invoke-Expression $script
-    
-    exit
 }
 
 # Get the latest release version, zip download URL, and commit ID
@@ -85,12 +60,6 @@ if ($latestVersion -ne $localVersion) {
             # Check if the script has been updated
             $extractedScriptPath = "$extractPath\Vex-SDK-dev\Vex-SDK.updater.ps1"
 
-            if ($CodeVersionFile -ne $CodeVersion) {
-
-            Restart-Script -newScriptPath $extractedScriptPath
-                
-            }
-
             # Remove existing folders
             Remove-Item -Path "$destinationPath\sdk" -Recurse -Force
             Remove-Item -Path "$destinationPath\tools" -Recurse -Force
@@ -104,8 +73,6 @@ if ($latestVersion -ne $localVersion) {
 
             # Save the new version and commit ID
             "$latestVersion" | Set-Content -Path $localVersionFile
-            "$CodeVersion" | Set-Content -Path $CodeVersionFile
-
             # Clean up
             Remove-Item -Path $zipFilePath -Force
             Remove-Item -Path $extractPath -Recurse -Force
