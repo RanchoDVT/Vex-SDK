@@ -8,8 +8,6 @@ $templatePath = "$env:USERPROFILE\.vscode-insiders\extensions\vexrobotics.vexcod
 $VscodeInsiders = "$env:APPDATA\Code - Insiders\User\globalStorage\vexrobotics.vexcode"
 $VscodeStable = "$env:APPDATA\Code\User\globalStorage\vexrobotics.vexcode"
 $DesktopPath = [Environment]::GetFolderPath("Desktop")
-$CodeVersion = "Powershell 1.4.1"
-$CodeVersionFile = "$env:APPDATA\powershell_version.txt"
 
 # Function to get the latest release version from GitHub
 function Get-LatestReleaseVersion {
@@ -19,7 +17,6 @@ function Get-LatestReleaseVersion {
     $latestTag = $response.tag_name
     return $latestTag
 }
-
 
 # Get the latest release version, zip download URL, and commit ID
 $latestVersion = Get-LatestReleaseVersion -url $apiUrl
@@ -76,8 +73,6 @@ if ($latestVersion -ne $localVersion) {
 
             # Save the new version and commit ID
             "$latestVersion" | Set-Content -Path $localVersionFile
-            "$CodeVersion" | Set-Content -Path $CodeVersionFile
-
             # Clean up
             Remove-Item -Path $zipFilePath -Force
             Remove-Item -Path $extractPath -Recurse -Force

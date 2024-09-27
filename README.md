@@ -13,8 +13,8 @@ This is a modified version of the vex SDK to support newer standards of the C/CP
 - GNU ARM.exe's | 2013 -> 13.3.rel1/2024
   - GCC Arm includes | 4.9.3 -> 13.3.1
 
-- clang.exe | 8.0.0 -> 18.1.8
-  - clang includes | 8.0.0 -> 18.1.8
+- clang.exe | 8.0.0 -> 18.1.8 (Will update to 19.1.0 soon)
+  - clang includes | 8.0.0 -> 18.1.8 (Will update to 19.1.0 soon)
 
 - mkenv.mk | C=gnu99, C++=gnu++11 -> C=gnu23, C++=gnu++23
 
