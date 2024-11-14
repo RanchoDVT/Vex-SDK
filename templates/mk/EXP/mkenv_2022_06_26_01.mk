@@ -1,17 +1,17 @@
 # Custom makefile by Voidless7125 (7/16/2024)
 # VEXcode mkenv.mk 2022_06_26_01
 
-# macros to help with paths that include spaces
+# Macros to help with paths that include spaces
 sp = $() $()
 qs = $(subst ?, ,$1)
 sq = $(subst $(sp),?,$1)
 
-# default platform and build location
-PLATFORM  = vexexp
+# Default platform and build location
+PLATFORM  = vexiq2
 BUILD     = build
 
 # Version for clang headers
-HEADERS = 18
+HEADERS = 19
 
 # Project name passed from app
 PROJECT  := $(if $(P),$(P),$(call qs,$(notdir $(call sq,${CURDIR}))))
@@ -35,7 +35,7 @@ BUILD_VERBOSE ?= $(if $(V),$(V),$(if $(VERBOSE),$(VERBOSE),0))
 # Use verbose flag
 Q = $(if $(filter 0,$(BUILD_VERBOSE)),@,)
 
-# compile and link tools
+# Compile and link tools
 CC      = clang
 CXX     = clang
 OBJCOPY = arm-none-eabi-objcopy
@@ -43,7 +43,7 @@ SIZE    = arm-none-eabi-size
 LINK    = arm-none-eabi-ld
 ARCH    = arm-none-eabi-ar
 ECHO    = @echo
-DEFINES = -DVexEXP
+DEFINES = -DVexIQ2
 
 # Platform specific macros
 ifeq ($(OS),Windows_NT)
@@ -71,7 +71,7 @@ TOOL_LIB  = -L"$(VEX_SDK_PATH)/$(PLATFORM)/gcc/libs"
 
 # Compiler flags
 CFLAGS_CL = -target thumbv7-none-eabi -fshort-enums -Wno-unknown-attributes -U__INT32_TYPE__ -U__UINT32_TYPE__ -D__INT32_TYPE__=long -D__UINT32_TYPE__='unsigned long' 
-CFLAGS_V7 = -mthumb -mcpu=cortex-m7 -mfpu=fpv5-d16 -mfloat-abi=hard
+CFLAGS_V7 = -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 CFLAGS    = ${CFLAGS_CL} ${CFLAGS_V7} -Os -Wall -Wextra -Werror=return-type -std=gnu23 $(DEFINES)
 CXX_FLAGS = ${CFLAGS_CL} ${CFLAGS_V7} -Os -Wall -Wextra -Werror=return-type -fno-rtti -fno-threadsafe-statics -std=gnu++23 -ffunction-sections -fdata-sections $(DEFINES)
 
@@ -83,7 +83,7 @@ PROJECTLIB = lib$(PROJECT)
 ARCH_FLAGS = rcs
 
 # Libraries
-LIBS =  --start-group -lexprt -lc_nano -lstdc++_nano -lm -lgcc --end-group
+LIBS =  --start-group -lviq2rt -lc_nano -lstdc++_nano -lm -lgcc --end-group
 
 # Include file paths
 INC += $(addprefix -I, ${INC_F})

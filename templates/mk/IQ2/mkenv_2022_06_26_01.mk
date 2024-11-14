@@ -11,7 +11,7 @@ PLATFORM  = vexiq2
 BUILD     = build
 
 # Version for clang headers
-HEADERS = 18
+HEADERS = 19
 
 # Project name passed from app
 PROJECT  := $(if $(P),$(P),$(call qs,$(notdir $(call sq,${CURDIR}))))

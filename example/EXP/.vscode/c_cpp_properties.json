@@ -4,7 +4,7 @@
 		"vex_sdkPath": "${config:vexrobotics.vexcode.Cpp.Sdk.Home}\\EXP\\EXP_20240611_19_00_00\\vexexp",
 		"vex_gcc": "${vex_sdkPath}/gcc/include/c++/13.3.1",
 		"vex_sdkIncludes": [
-			"${vex_sdkPath}/clang/18/include/**",
+			"${vex_sdkPath}/clang/19/include/**",
 			"${vex_gcc}/**",
 			"${vex_gcc}/arm-none-eabi/thumb/v7e-m+dp/hard",
 			"${vex_sdkPath}/gcc/include/**",
